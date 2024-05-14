@@ -211,6 +211,7 @@ ul{
 .modal {
     display: none;
     position: fixed;
+    padding-top: 5rem;
     z-index: 999;
     left: 0;
     top: 0;
