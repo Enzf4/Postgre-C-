@@ -10,19 +10,19 @@
 <body>
     <nav id="navbar">
         <div class="logo">
-            <h1>Desafio</h1>  
+            <a href="#"><h1>EELM</h1></a> 
         </div>
         <div class="nav-items">
             <a href="#instalacao">Instalação</a>
-            <a href="">Primeiros Passos</a>
-            <a href="">Conexão</a>
+            <a href="#pg">No PostgreSQL</a>
+            <a href="#vs">No Visual Studio</a>
         </div>
     </nav>
     <section class="hero">
         <div class="hero-container">
             <div class="column-left">
                 <h1>Tutorial: Integração PostgreSQL com C# no Visual Studio</h1>
-                <p>Tutorial de como integrar o PostgreSQL com C# no Visual Studio 2022 utilizando o provedor de acesso a dados Npgsql.</p>
+                <p>Tutorial de como integrar o PostgreSQL em um CRUD com C# no Visual Studio 2022, utilizando o provedor de acesso a dados Npgsql.</p>
             </div>
             <div class="column-right">
                 <img src="Imagens/heroimg.png" alt="PostgreSQL, Visual Studio e C" class="hero-image">
@@ -41,7 +41,7 @@
                 <p>Dê continuidade ao processo de instalação...</p>
                 <img id="img" class="invert" src="Imagens/Stackbuilder.png" alt="Janela StackBuilder">
                 <p>Não vamos executar o Stack Builder, então desmarque a checkbox.</p>
-                <h1>No PostgreSQL</h1>
+                <h1 id="pg">No PostgreSQL</h1>
                 <p>Ao abrir o pgAdmin, insira a senha de acesso que criou anteriormente.</p>
                 <img id="img" class="invert" src="Imagens/Senha2.png" alt="Janela de senha PostgreSQL">
                 <p>Em seguida, crie seu primeiro banco de dados.</p>
@@ -50,7 +50,7 @@
                 <video autoplay controls loop src="Videos/Criando_Tabela.mp4"></video>
                 <p>Criaremos as seguintes colunas:</p>
                 <img id="img" src="Imagens/Colunas.png" alt="Janela colunas PostgreSQL">
-                <h1>No Visual Studio</h1>
+                <h1 id="vs">No Visual Studio</h1>
                 <p>Para este projeto, baixe o código fornecido abaixo e use-o como base fazendo as alterações necessárias:</p>
                 <a href="https://download1322.mediafire.com/8he399pxwzsgFT4hfqoS9PeSj4giQ9DvUHFcSiYu58OhTH17blNkirF2-U5W3LZWHhUvXo2SRaz8pLeUHWdXeHJx82M2ZpbymhEqTZjI0g3JOCBCz_8OFSxUOpytXaJqRwim2-E6MISFP_ZtuwnnkbSVN5gLr24CH9QskLqVoCGZpc0/2cv4rqbn59w7c7s/Base_CRUD.rar"><button>Download</button></a>
                 <p>Descompacte o arquivo Base_CRUD.rar e abra o arquivo ParaCasa1.sln localizado dentro da pasta CRUD Completo.</p>
@@ -62,14 +62,67 @@
                 <h2>Imports e Namespaces</h2>
                 <img id="img" src="Imagens/1.png" alt="código">
                 <ul>
-                    <li><code>using System:</code> Isso importa o namespace <code>System</code>, padrão do Visual Studio.</li>
-                    <li><code>using Npgsql:</code> Isso importa o namespace <code>Npgsql</code>, que é necessário para trabalhar com o PostgreSQL em C#.</li>
-                    <li><code>namespace ParaCasa1:</code> Define um namespace para o código. Namespaces são usados para organizar o código e processos.</li>
+                    <li><code><strong>using System:</strong></code> Isso importa o namespace <code>System</code>, padrão do Visual Studio.</li>
+                    <li><code><strong>using Npgsql:</strong></code> Isso importa o namespace <code>Npgsql</code>, que é necessário para trabalhar com o PostgreSQL em C#.</li>
+                    <li><code><strong>namespace ParaCasa1:</strong></code> Define um namespace para o código. Namespaces são usados para organizar o código e processos.</li>
                 </ul>
                 <p>Note que no código base, "Using Npgsql" precisa ser inserido manualmente.</p>
                 <h2>Declaração de Variáveis</h2>
-                <p>Atenção: Todo código ficará dentro da classe "LivroDAL". </p>
+                <p>Atenção: Todo o código ficará dentro da classe "LivroDAL". </p>
                 <img id="img" src="Imagens/2.png" alt="código">
+                <ul>
+                    <li><strong>strConexao:</strong> String que define a conexão com o banco de dados PostgreSQL. Contém informações como o servidor, porta, nome do banco de dados, usuário e senha.</li>
+                </ul>
+                <p>Essas informações podem ser encontradas da seguinte forma:</p>
+                <video autoplay controls loop src="Videos/conexão.mp4"></video>
+                <ul>
+                    <li><strong>conn:</strong> Objeto NpgsqlConnection que representa a conexão com o banco de dados.</li>
+                    <li><strong>strSQL:</strong> Objeto NpgsqlCommand para executar comandos SQL no banco de dados.</li>
+                    <li><strong>result:</strong> Objeto NpgsqlDataReader para armazenar os resultados de consultas SQL.</li>
+                </ul>
+                <h2>Métodos</h2>
+                <p>conecta()</p>
+                <img src="Imagens/3.png" alt="código">
+                <ul>
+                    <li>Este método é responsável por abrir a conexão com o banco de dados. Ele utiliza um bloco <code>try-catch</code> para capturar exceções que possam ocorrer durante a tentativa de abertura da conexão.</li>
+                    <li>Se a conexão for bem-sucedida, o método <code>Open()</code> do objeto <code>NpgsqlConnection</code> é chamado para abrir a conexão.</li>
+                    <li>Se ocorrer algum erro durante a conexão, uma mensagem de erro é definida usando a classe <code>Erro</code>, que não está presente no código fornecido, mas é referenciada aqui para lidar com erros de forma centralizada.</li>
+                </ul>
+                <p>desconecta()</p>
+                <img src="Imagens/4.png" alt="código">
+                <ul>
+                    <li>Este método é responsável por fechar a conexão com o banco de dados. Ele simplesmente chama o método Close() do objeto NpgsqlConnection para fechar a conexão aberta anteriormente. </li>
+                </ul>
+                <p>Note que abriremos e fecharemos a conexão com o banco de dados dentro de cada método.</p>
+                <p>inseriUmLivro(Livro umlivro)</p>
+                <img src="Imagens/5.png" alt="código">
+                <ul>
+                    <li>Este método insere um novo livro no banco de dados. Primeiro, ele chama o método <code>conecta()</code> para abrir a conexão com o banco de dados.</li>
+                    <li>Em seguida, ele constrói uma string SQL de inserção com parâmetros usando o comando <code>INSERT INTO</code>.</li>
+                    <li>Depois, ele cria um objeto <code>NpgsqlCommand</code> com a string SQL e adiciona parâmetros para cada valor do livro usando o método <code>AddWithValue()</code>.</li>
+                    <li>Então, ele executa o comando SQL usando o método <code>ExecuteNonQuery()</code> do objeto <code>NpgsqlCommand</code> para inserir o livro no banco de dados.</li>
+                    <li>Se ocorrer algum erro durante a inserção, ele é capturado pelo bloco <code>try-catch</code>, e uma mensagem de erro é definida usando a classe <code>Erro</code>.</li>
+                    <li>Por fim, o método <code>desconecta()</code> é chamado para fechar a conexão com o banco de dados.</li>
+                </ul>
+                <p>excluiUmLivro(Livro umlivro)</p>
+                <img src="Imagens/6.png" alt="código">
+                <ul>
+                    <li>Este método exclui um livro do banco de dados com base no código do livro fornecido. Ele segue uma abordagem semelhante ao método de inserção, mas usa uma instrução `DELETE` para remover o livro do banco de dados.</li>
+                </ul>
+                <p>atualizaUmLivro(Livro umlivro)</p>
+                <img src="Imagens/7.png" alt="código">
+                <ul>
+                    <li>Este método atualiza as informações de um livro no banco de dados. Ele utiliza uma instrução `UPDATE` para modificar as informações do livro com base no código do livro fornecido.</li>
+                </ul>
+                <p>consultaUmLivro(Livro umlivro)</p>
+                <img src="Imagens/8.png" alt="código">
+                <ul>
+                    <li>Este método consulta as informações de um livro no banco de dados com base no código do livro fornecido. Ele utiliza uma instrução <code>SELECT</code> para buscar o livro no banco de dados.</li>
+                    <li>O resultado da consulta é armazenado em um objeto <code>NpgsqlDataReader</code>.</li>
+                    <li>Se o livro for encontrado, as informações são lidas do objeto <code>NpgsqlDataReader</code> e definidas no objeto <code>Livro</code> fornecido.</li>
+                    <li>Se o livro não for encontrado, uma mensagem de erro é definida usando a classe <code>Erro</code>.</li>
+                    <li>Por fim, o método <code>desconecta()</code> é chamado para fechar a conexão com o banco de dados.</li>
+                </ul>
             </div>      
         </div>
     </section>
