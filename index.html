@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD com PostgreSQL e C#</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <nav id="navbar">
+        <div class="logo">
+            <h1>Desafio</h1>  
+        </div>
+        <div class="nav-items">
+            <a href="#instalacao">Instalação</a>
+            <a href="">Primeiros Passos</a>
+            <a href="">Conexão</a>
+        </div>
+    </nav>
+    <section class="hero">
+        <div class="hero-container">
+            <div class="column-left">
+                <h1>Tutorial: Integração PostgreSQL com C# no Visual Studio</h1>
+                <p>Tutorial de como integrar o PostgreSQL com C# no Visual Studio 2022 utilizando o provedor de acesso a dados Npgsql.</p>
+            </div>
+            <div class="column-right">
+                <img src="Imagens/heroimg.png" alt="PostgreSQL, Visual Studio e C" class="hero-image">
+            </div>
+        </div>
+    </section>
+    <section class="main">
+        <div class="main-container">
+            <div class="install-container">
+                <h1 id ="instalacao">Instalando o PostgreSQL</h1>
+                <p>Instale a versão do PostgreSQL correspondente ao seu sistema:</p>
+                <a target="_blank" href="https://www.enterprisedb.com/downloads/postgres-postgresql-downloads"><button>Download</button></a>
+                <p>Siga os passos de instalação (Next > Next > Next > ...)</p>
+                <h2>Defina uma senha de acesso:</h2>
+                <img id="img" class="invert" src="Imagens/Senha.png" alt="Janela criação de senha">
+                <p>Dê continuidade ao processo de instalação...</p>
+                <img id="img" class="invert" src="Imagens/Stackbuilder.png" alt="Janela StackBuilder">
+                <p>Não vamos executar o Stack Builder, então desmarque a checkbox.</p>
+                <h1>No PostgreSQL</h1>
+                <p>Ao abrir o pgAdmin, insira a senha de acesso que criou anteriormente.</p>
+                <img id="img" class="invert" src="Imagens/Senha2.png" alt="Janela de senha PostgreSQL">
+                <p>Em seguida, crie seu primeiro banco de dados.</p>
+                <video autoplay controls loop src="Videos/Criando_Database.mp4"></video>
+                <p>Crie uma tabela chamada "Livro".</p>
+                <video autoplay controls loop src="Videos/Criando_Tabela.mp4"></video>
+                <p>Criaremos as seguintes colunas:</p>
+                <img id="img" src="Imagens/Colunas.png" alt="Janela colunas PostgreSQL">
+                <h1>No Visual Studio</h1>
+                <p>Para este projeto, baixe o código fornecido abaixo e use-o como base fazendo as alterações necessárias:</p>
+                <a href="https://download1322.mediafire.com/8he399pxwzsgFT4hfqoS9PeSj4giQ9DvUHFcSiYu58OhTH17blNkirF2-U5W3LZWHhUvXo2SRaz8pLeUHWdXeHJx82M2ZpbymhEqTZjI0g3JOCBCz_8OFSxUOpytXaJqRwim2-E6MISFP_ZtuwnnkbSVN5gLr24CH9QskLqVoCGZpc0/2cv4rqbn59w7c7s/Base_CRUD.rar"><button>Download</button></a>
+                <p>Descompacte o arquivo Base_CRUD.rar e abra o arquivo ParaCasa1.sln localizado dentro da pasta CRUD Completo.</p>
+                <h2>Instalando o Npgsql</h2>
+                <p>Para fazermos a integração do PostgreSQL com o Visual Studio, utilizaremos o provedor de acesso a dados Npgsql.</p>
+                <a target="_blank" href="https://www.npgsql.org/"><button>Documentação</button></a>
+                <p>A instalação é feita da seguinte forma:</p>
+                <video muted autoplay controls loop src="Videos/Biblioteca Npgsql.mp4"></video>
+                <h2>Imports e Namespaces</h2>
+                <img id="img" src="Imagens/1.png" alt="código">
+                <ul>
+                    <li><code>using System:</code> Isso importa o namespace <code>System</code>, padrão do Visual Studio.</li>
+                    <li><code>using Npgsql:</code> Isso importa o namespace <code>Npgsql</code>, que é necessário para trabalhar com o PostgreSQL em C#.</li>
+                    <li><code>namespace ParaCasa1:</code> Define um namespace para o código. Namespaces são usados para organizar o código e processos.</li>
+                </ul>
+                <p>Note que no código base, "Using Npgsql" precisa ser inserido manualmente.</p>
+                <h2>Declaração de Variáveis</h2>
+                <p>Atenção: Todo código ficará dentro da classe "LivroDAL". </p>
+                <img id="img" src="Imagens/2.png" alt="código">
+            </div>      
+        </div>
+    </section>
+    <div id="modal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+</div>
+</body>
+</html>
