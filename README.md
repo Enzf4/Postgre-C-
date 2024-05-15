@@ -1,5 +1,7 @@
 # Tutorial: Integração PostgreSQL com C# no Visual Studio
 
+!(Imagens/heroimg.png)
+
 ## Descrição
 
 Este projeto consiste em um tutorial que demonstra como integrar o PostgreSQL em um aplicativo C# no ambiente do Visual Studio. O tutorial cobre desde a instalação do PostgreSQL até a criação de um CRUD (Create, Read, Update, Delete) completo usando o provedor de acesso a dados Npgsql.
