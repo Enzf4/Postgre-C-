@@ -198,6 +198,10 @@ nav a{
     margin-bottom: 2rem;
 }
 
+iframe{
+    max-width: 100%;
+}
+
 li{
     font-size: 1.3rem;
     color: aliceblue;
