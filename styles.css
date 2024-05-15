@@ -155,6 +155,40 @@ nav a{
     color: aliceblue;
 }
 
+.end{
+    background-color: #020512;
+}
+
+.end-container{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    min-height: 95vh; 
+    padding: 3rem calc((100vw - 800px) / 2);
+    margin-top: -15rem;
+    margin: auto;
+    text-align: center;
+}
+
+.end-container h1{
+    font-size: 3.5rem;
+    color: aliceblue;
+    margin-top: 3rem;
+}
+
+.end-container p{
+    font-size: 1.5rem;
+    color: aliceblue;
+}
+
+.us{
+    border-radius: 100%;
+    width: 100%;
+    max-width: 300px;
+    filter: contrast(115%);
+}
+
 .main-container button{
     font-size: 1.5rem;
     background-color: #535C91;
@@ -256,6 +290,53 @@ ul{
     margin-top: 0.6rem;
 }
 
+#sobre{ 
+    margin-top: 0.6rem;
+}
+
+#github{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0rem;
+    padding: 1rem;
+    gap: 1rem;
+    text-align: center;
+    font-size: 1.5rem;
+    background-color: #020512;
+    color: aliceblue;
+    border: aliceblue 2px solid;
+    border-radius: 50px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 2rem;
+    transition: all 0.3s ease;
+}
+
+#github:hover{
+    background-color: aliceblue;
+    color: #020512;
+    transition: all 0.4s ease;
+    #githublogo{
+        filter: none;
+        transition: all 0.4s ease;
+    }
+}
+
+#githublogo{
+    left: 0rem;
+    margin-bottom: 0rem;
+    width: 40px;
+    filter: invert();
+    margin-left: -2rem;
+    cursor: default;
+    transition: all 0.3s ease;
+}
+
+#repo{
+    margin-top: 6rem;
+}
+
 @media screen and (max-width: 768px){
     .hero-container{
         grid-template-columns: 1fr;
@@ -294,5 +375,15 @@ ul{
     .install-container p, .install-container li{
         line-height: 1.6rem;
         font-size: 1.2rem;
+    }
+
+    #github:hover{
+        color: aliceblue;
+        background-color: #020512;
+        transition: all 0.4s ease;
+        #githublogo{
+            filter: invert();
+            transition: all 0.4s ease;
+        }
     }
 }
