@@ -252,6 +252,10 @@ ul{
     cursor: pointer;
 }
 
+#teste{
+    margin-top: 0.6rem;
+}
+
 @media screen and (max-width: 768px){
     .hero-container{
         grid-template-columns: 1fr;
