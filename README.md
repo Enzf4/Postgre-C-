@@ -1,6 +1,6 @@
 # Tutorial: Integração PostgreSQL com C# no Visual Studio
 
-!(Imagens/heroimg.png)
+![Logo](Imagens/heroimg.png)
 
 ## Descrição
 
