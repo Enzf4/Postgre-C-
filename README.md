@@ -1,6 +1,8 @@
 # Tutorial: Integração PostgreSQL com C# no Visual Studio
 
-<img src="Imagens/heroimg.png" width="300">
+<p align="center">
+  <img src="Imagens/heroimg.png" width="300">
+</p>
 
 ## Descrição
 
