@@ -155,40 +155,6 @@ nav a{
     color: aliceblue;
 }
 
-.end{
-    background-color: #020512;
-}
-
-.end-container{
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex-direction: column;
-    min-height: 95vh; 
-    padding: 3rem calc((100vw - 800px) / 2);
-    margin-top: -15rem;
-    margin: auto;
-    text-align: center;
-}
-
-.end-container h1{
-    font-size: 3.5rem;
-    color: aliceblue;
-    margin-top: 3rem;
-}
-
-.end-container p{
-    font-size: 1.5rem;
-    color: aliceblue;
-}
-
-.us{
-    border-radius: 100%;
-    width: 100%;
-    max-width: 300px;
-    filter: contrast(115%);
-}
-
 .main-container button{
     font-size: 1.5rem;
     background-color: #535C91;
@@ -335,6 +301,40 @@ ul{
 
 #repo{
     margin-top: 6rem;
+}
+
+.end{
+    background-color: #020512;
+}
+
+.end-container{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    min-height: 95vh; 
+    padding: 3rem calc((100vw - 800px) / 2);
+    margin-top: -15rem;
+    margin: auto;
+    text-align: center;
+}
+
+.end-container h1{
+    font-size: 3.5rem;
+    color: aliceblue;
+    margin-top: 3rem;
+}
+
+.end-container p{
+    font-size: 1.5rem;
+    color: aliceblue;
+}
+
+.us{
+    border-radius: 100%;
+    width: 100%;
+    max-width: 300px;
+    filter: contrast(115%);
 }
 
 @media screen and (max-width: 768px){
