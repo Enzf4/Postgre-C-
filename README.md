@@ -30,7 +30,7 @@ Sinta-se à vontade para contribuir com melhorias, correções ou novos recursos
 
 ## Autores
 
-Enzo Farias
-Luan Robert
-Murilo Amaral
-Esther Martins
+- Enzo Farias
+- Luan Robert
+- Murilo Amaral
+- Esther Martins
