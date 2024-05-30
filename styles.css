@@ -298,6 +298,7 @@ ul{
     width: 40px;
     filter: invert();
     margin-left: -2rem;
+    margin-right: 0rem;
     cursor: default;
     transition: all 0.3s ease;
 }
